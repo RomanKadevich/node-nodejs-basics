@@ -10,7 +10,6 @@ const list = async () => {
   try {
     const files = await fs.readdir(folderPath);
     files.forEach((file) => console.log(file));
-    console.log("File deleted successfully");
   } catch (accessError) {
     console.error(
       "FS operation failed: Error access folder:",
