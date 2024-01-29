@@ -5,11 +5,12 @@ import { dirname, join } from "node:path";
 const remove = async () => {
   const filename = fileURLToPath(import.meta.url);
   const __dirname = dirname(filename);
-  const filePath = join(__dirname, "files", "fileToRemove.txt");
+  const sourceFilePath = join(__dirname, "files", "fileToRemove.txt");
 
   try {
-    await fs.unlink(filePath);
-    console.log("File deleted successfully");
+    await fs.access(sourceFilePath);
+    await fs.unlink(sourceFilePath);
+    console.log("File was removed successfully");
   } catch (accessError) {
     console.error(
       "FS operation failed: Error deleting file:",
