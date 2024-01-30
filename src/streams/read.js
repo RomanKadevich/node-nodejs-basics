@@ -1,6 +1,7 @@
 import { createReadStream } from "fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+
 const read = async () => {
   const filename = fileURLToPath(import.meta.url);
   const __dirname = dirname(filename);
